@@ -16,9 +16,33 @@ product_list = [
 	('bike', 2000),
 ]
 
+shop_cart = []
+
 salary = input("请输入您的本金:")
 
 if salary.isdigit():
 	salary = int(salary)
-	for i,v in  enumerate(product_list,1) :
-		print(i,'----','品名',v[0],'----',"价格","$",v[1])
+	while True:
+		for i, v in enumerate(product_list, 1):
+			print(i, '----', '品名', v[0], '----', "价格", "$", v[1])
+		choice = input("请您选择购买商品的序号(退出:q):")
+		if choice.isdigit():
+			choice = int(choice)
+			if 0 < choice <= len(product_list):
+				p_iterm = product_list[choice - 1]
+				if p_iterm[1] < salary:
+					salary -= p_iterm[1]
+					shop_cart.append(p_iterm)
+				else:
+					print("余额不足,还剩%s" % salary)
+				print(p_iterm)
+			else:
+				print("编码不存在")
+		elif choice.__eq__("q"):
+			print("------------您已购买商品如下-------------------")
+			for i in shop_cart:
+				print(i)
+			print("余额%s" % salary)
+			break
+		else:
+			print("非法输入")
