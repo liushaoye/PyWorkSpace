@@ -47,10 +47,49 @@ print(list(dic1.values()))
 
 
 # 改 update
-names_class2 = {1:'张三',2: '李四',3: '王五', 4:'赵六'}
+names_class2 = {1:'张三',2: '李四',3: '王五', 4:'赵六','age':16}
 names_class3 = {5:'wusir', 6:'alvin'}
 names_class2.update(names_class3)
 print(names_class2)
+
+# 删，索引方式
+print(names_class2.pop(1))
+print(names_class2)
+
+
+# 删除指定键值对
+
+del names_class2["age"]
+print(names_class2)
+
+# 随机删除某组键值对，并以元组方式返回值
+a = names_class2.popitem()
+print('随机删：-',a,names_class2)
+
+
+# 删除整个字典
+del  names_class2
+try:
+	print(names_class2)
+except 	NameError:
+	print('已删除不存在了')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
