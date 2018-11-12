@@ -94,16 +94,6 @@ print('zGGGGGG'.lower())
 print('dfasdf'.upper())
 # 大写变小写，小写变大写
 print('Hello'.swapcase())
-# 左为基准右添加
-print('Hello'.ljust(50,'-'))
-# 右为基准左添加
-print('Hello'.rjust(60,'*'))
-# 开头结尾换行符去掉
-print('\npppp\t'.strip())
-# 左边换行空格去除
-print('    ppp\t\n'.lstrip())
-# 右边换行空格去除
-print('    ppp\t\n'.rstrip())
 
 
 
