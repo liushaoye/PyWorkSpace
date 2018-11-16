@@ -6,7 +6,7 @@
 
 
 print('\n')
-print('********** 三级菜单 version 1*************   \n')
+print('********** 三级菜单 version 2*************   \n')
 
 msg = '''
 --------- message --------
@@ -16,7 +16,7 @@ msg = '''
 	3、可随时退出程序
    转化：
 	1、可以一层一层的进入到所有层
-	2、可以在每层返回上一层
+	2、可以在每层返回上一层----------实现此处功能
 	3、可以在任意层退出 主菜单
 --------------------------
 '''
@@ -100,17 +100,33 @@ menu = {
 	
 }
 
-while True:
+back_flag = False
+
+exit_flag = False
+
+while not back_flag and not exit_flag:
 	for key in menu:
 		print(key)
 	choice = input(">> 1:").strip()
 	if choice in menu:
-		while True:
+		while not back_flag and not exit_flag:
 			for key2 in menu[choice]:
 				print(key2)
 			choice2 = input(">>2:").strip()
+			if choice2 == "b":
+				back_flag = True
+			if choice2 == "q":
+				exit_flag = True
 			if choice2 in menu[choice]:
-				while True:
+				while not back_flag and not exit_flag:
 					for key3 in menu[choice][choice2]:
 						print(key3)
 					choice3 = input(">>3:").strip()
+					if choice3 == "b":
+						back_flag = True
+					if choice3 == "q":
+						exit_flag = True
+				else:
+					back_flag = False
+		else:
+			back_flag = False
